@@ -1,0 +1,2140 @@
+[
+  {
+    "tagName": "v0.67.0",
+    "name": "Aider v0.67.0",
+    "body": "- [Use aider in your IDE or editor](https://aider.chat/docs/usage/watch.html).\r\n  - Run `aider --watch-files` and it will watch for instructions you add to your source files.\r\n  - One-liner `# ...` or `// ...` comments that start or end with \"AI\" are instructions to aider.\r\n  - When aider sees \"AI!\" it reads and follows all the instructions in AI comments.\r\n- Support for new Amazon Bedrock Nova models.\r\n- When `/run` or `/test` have non-zero exit codes, pre-fill \"Fix that\" into the next message prompt.\r\n- `/diff` now invokes `git diff` to use your preferred diff tool.\r\n- Added Ctrl-Z support for process suspension.\r\n- Spinner now falls back to ASCII art if fancy symbols throw unicode errors.\r\n- `--read` now expands `~` home dirs.\r\n- Enabled exception capture in analytics.\r\n- [Aider wrote 61% of the code in this release.](https://aider.chat/HISTORY.html)\r\n\r\nhttps://github.com/user-attachments/assets/bea76d8b-5c31-4913-9536-97b7e6c632b5\r\n\r\n",
+    "createdAt": "2024-12-06T14:31:40Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.67.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 1
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      },
+      {
+        "type": "+1",
+        "totalCount": 4
+      },
+      {
+        "type": "hooray",
+        "totalCount": 3
+      },
+      {
+        "type": "rocket",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.66.0",
+    "name": "Aider v0.66.0",
+    "body": "- PDF support for Sonnet and Gemini models.\r\n- Added `--voice-input-device` to select audio input device for voice recording, by @preynal.\r\n- Added `--timeout` option to configure API call timeouts.\r\n- Set cwd to repo root when running shell commands.\r\n- Added Ctrl-Up/Down keyboard shortcuts for per-message history navigation.\r\n- Improved error handling for failed .gitignore file operations.\r\n- Improved error handling for input history file permissions.\r\n- Improved error handling for analytics file access.\r\n- Removed spurious warning about disabling pretty in VSCode.\r\n- Removed broken support for Dart.\r\n- Bugfix when scraping URLs found in chat messages.\r\n- Better handling of __version__ import errors.\r\n- Improved `/drop` command to support substring matching for non-glob patterns.\r\n- Bugfix to `--alias`.\r\n- Aider wrote 82% of the code in this release.\r\n\r\nhttps://github.com/user-attachments/assets/4d9b5187-45e5-47c2-a8ff-1e00542c8b06\r\n\r\n",
+    "createdAt": "2024-12-01T17:14:21Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.66.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 6
+      },
+      {
+        "type": "hooray",
+        "totalCount": 5
+      },
+      {
+        "type": "+1",
+        "totalCount": 7
+      },
+      {
+        "type": "laugh",
+        "totalCount": 2
+      },
+      {
+        "type": "heart",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 95
+      },
+      {
+        "login": "preynal",
+        "contributions": 3
+      },
+      {
+        "login": "itlackey",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.65.0",
+    "name": "Aider v0.65.0",
+    "body": "- Added `--alias` config to define [custom model aliases](https://aider.chat/docs/config/model-aliases.html).\r\n- Added `--[no-]detect-urls` flag to disable detecting and offering to scrape URLs found in the chat.\r\n- Ollama models now default to an 8k context window.\r\n- Added [RepoMap support for Dart language](https://aider.chat/docs/languages.html) by @malkoG.\r\n- Ask 2.5% of users if they want to opt-in to [analytics](https://aider.chat/docs/more/analytics.html).\r\n- Skip suggesting files that share names with files already in chat.\r\n- `/editor` returns and prefill the file content into the prompt, so you can use `/editor` to compose messages that start with `/commands`, etc.\r\n- Enhanced error handling for analytics.\r\n- Improved handling of UnknownEditFormat exceptions with helpful documentation links.\r\n- Bumped dependencies to pick up grep-ast 0.4.0 for Dart language support.\r\n- Aider wrote 81% of the code in this release.\r\n\r\n<img width=\"569\" alt=\"2024-11-26_08-59-06\" src=\"https://github.com/user-attachments/assets/ea13c0e7-a243-4798-96a8-eebb43fba794\">\r\n",
+    "createdAt": "2024-11-26T16:55:57Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.65.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 3
+      },
+      {
+        "type": "+1",
+        "totalCount": 9
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      },
+      {
+        "type": "hooray",
+        "totalCount": 3
+      },
+      {
+        "type": "heart",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.64.0",
+    "name": "Aider v0.64.0",
+    "body": "- Added [`/editor` command](https://aider.chat/docs/usage/commands.html) to open system editor for writing prompts, by @thehunmonkgroup.\r\n- Full support for `gpt-4o-2024-11-20`.\r\n- Stream o1 models by default.\r\n- `/run` and suggested shell commands are less mysterious and now confirm that they \"Added XX lines of output to the chat.\"\r\n- Ask 1% of users if they want to opt-in to [analytics](https://aider.chat/docs/more/analytics.html).\r\n- Added support for [optional multiline input tags](https://aider.chat/docs/usage/commands.html#entering-multi-line-chat-messages) with matching closing tags.\r\n- Improved [model settings configuration](https://aider.chat/docs/config/adv-model-settings.html#global-extra-params) with support for global `extra_params` for `litellm.completion()`.\r\n- Architect mode now asks to add files suggested by the LLM.\r\n- Fixed bug in fuzzy model name matching.\r\n- Added Timeout exception to handle API provider timeouts.\r\n- Added `--show-release-notes` to control release notes display on first run of new version.\r\n- Save empty dict to cache file on model metadata download failure, to delay retry.\r\n- Improved error handling and code formatting.\r\n- Fixed bug in fuzzy model name matching when litellm provider info is missing.\r\n- Modified model metadata file loading to allow override of resource file.\r\n- Allow recursive loading of dirs using `--read`.\r\n- Updated dependency versions to pick up litellm fix for ollama models.\r\n- Added exponential backoff retry when writing files to handle editor file locks.\r\n- Updated Qwen 2.5 Coder 32B model configuration.\r\n- Fixed bug in git ignored file handling.\r\n- Improved error handling for git operations.\r\n- Aider wrote 74% of the code in this release. \r\n\r\n",
+    "createdAt": "2024-11-21T20:35:35Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.64.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 8
+      },
+      {
+        "type": "laugh",
+        "totalCount": 5
+      },
+      {
+        "type": "+1",
+        "totalCount": 11
+      },
+      {
+        "type": "hooray",
+        "totalCount": 7
+      },
+      {
+        "type": "heart",
+        "totalCount": 9
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "caetanominuzzo",
+        "contributions": 1
+      },
+      {
+        "login": "thehunmonkgroup",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.63.0",
+    "name": "Aider v0.63.0",
+    "body": "- Support for Qwen 2.5 Coder 32B.\r\n- `/web` command just adds the page to the chat, without triggering an LLM response.\r\n- Improved prompting for the user's preferred chat language.\r\n- Improved handling of LiteLLM exceptions.\r\n- Bugfix for double-counting tokens when reporting cache stats.\r\n- Bugfix for the LLM creating new files.\r\n- Other small bug fixes.\r\n- Aider wrote 55% of the code in this release.",
+    "createdAt": "2024-11-13T21:35:36Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.63.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 22
+      },
+      {
+        "type": "laugh",
+        "totalCount": 2
+      },
+      {
+        "type": "+1",
+        "totalCount": 6
+      },
+      {
+        "type": "hooray",
+        "totalCount": 3
+      },
+      {
+        "type": "heart",
+        "totalCount": 9
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "Hambaobao",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.62.0",
+    "name": "Aider v0.62.0",
+    "body": "- Full support for Claude 3.5 Haiku\r\n  - Scored 75% on [aider's code editing leaderboard](https://aider.chat/docs/leaderboards/).\r\n  - Almost as good as Sonnet at much lower cost.\r\n  - Launch with `--haiku` to use it.\r\n- Easily apply file edits from ChatGPT, Claude or other web apps\r\n  - Chat with ChatGPT or Claude via their web app.\r\n  - Give it your source files and ask for the changes you want.\r\n  - Use the web app's \"copy response\" button to copy the entire reply from the LLM.\r\n  - Run `aider --apply-clipboard-edits file-to-edit.js`.\r\n  - Aider will edit your file with the LLM's changes.\r\n- Bugfix for creating new files.\r\n- Aider wrote 84% of the code in this release.\r\n<img width=\"1003\" alt=\"2024-11-04_12-11-03\" src=\"https://github.com/user-attachments/assets/ceab2c15-848c-419c-bed6-38cd2347539e\">\r\n",
+    "createdAt": "2024-11-04T20:48:44Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.62.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 17
+      },
+      {
+        "type": "heart",
+        "totalCount": 13
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.61.0",
+    "name": "Aider v0.61.0",
+    "body": "- Load and save aider slash-commands to files:\r\n  - `/save <fname>` command will make a file of `/add` and `/read-only` commands that recreate the current file context in the chat.\r\n  - `/load <fname>` will replay the commands in the file.\r\n  - You can use `/load` to run any arbitrary set of slash-commands, not just `/add` and `/read-only`.\r\n  - Use `--load <fname>` to run a list of commands on launch, before the interactive chat begins.\r\n- Anonymous, opt-in [analytics](https://aider.chat/docs/more/analytics.html) with no personal data sharing.\r\n- Aider follows litellm's `supports_vision` attribute to enable image support for models.\r\n- Bugfix for when diff mode flexibly handles the model using the wrong filename.\r\n- Displays filenames in sorted order for `/add` and `/read-only`.\r\n- New `--no-fancy-input` switch disables prompt toolkit input, now still available with `--no-pretty`.\r\n- Override browser config with `--no-browser` or `--no-gui`.\r\n- Offer to open documentation URLs when errors occur.\r\n- Properly support all o1 models, regardless of provider.\r\n- Improved layout of filenames above input prompt.\r\n- Better handle corrupted repomap tags cache.\r\n- Improved handling of API errors, especially when accessing the weak model.\r\n- Aider wrote 68% of the code in this release.",
+    "createdAt": "2024-11-01T16:38:46Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.61.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 21
+      },
+      {
+        "type": "hooray",
+        "totalCount": 4
+      },
+      {
+        "type": "+1",
+        "totalCount": 6
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.60.0",
+    "name": "v0.60.0",
+    "body": "- Full support for Sonnet 10/22, the new SOTA model on aider's code editing benchmark.\r\n  - Aider uses Sonnet 10/22 by default.\r\n- Improved formatting of added and read-only files above chat prompt, by @jbellis.\r\n- Improved support for o1 models by more flexibly parsing their nonconforming code edit replies.\r\n- Corrected diff edit format prompt that only the first match is replaced.\r\n- Stronger whole edit format prompt asking for clean file names.\r\n- Now offers to add `.env` to the `.gitignore` file.\r\n- Ships with a small model metadata json file to handle models not yet updated in litellm.\r\n- Model settings for o1 models on azure.\r\n- Bugfix to properly include URLs in `/help` RAG results.\r\n- Aider wrote 49% of the code in this release.\r\n\r\n<img width=\"1021\" alt=\"2024-10-22_11-25-54\" src=\"https://github.com/user-attachments/assets/335e8276-fa4a-4749-bb47-8f30e13351b2\">\r\n",
+    "createdAt": "2024-10-22T18:34:28Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.60.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 30
+      },
+      {
+        "type": "hooray",
+        "totalCount": 17
+      },
+      {
+        "type": "rocket",
+        "totalCount": 9
+      },
+      {
+        "type": "heart",
+        "totalCount": 15
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 85
+      },
+      {
+        "login": "mbokinala",
+        "contributions": 2
+      },
+      {
+        "login": "strayer",
+        "contributions": 1
+      },
+      {
+        "login": "fry69",
+        "contributions": 10
+      },
+      {
+        "login": "jbellis",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.59.0",
+    "name": "v0.59.0",
+    "body": "- Improvements to `/read-only`:\r\n  - Now supports shell-style auto-complete of the full file system.\r\n  - Still auto-completes the full paths of the repo files like `/add`.\r\n  - Now supports globs like `src/**/*.py`\r\n- Renamed `--yes` to `--yes-always`.\r\n  - Now uses `AIDER_YES_ALWAYS` env var and `yes-always:` yaml key.\r\n  - Existing YAML and .env files will need to be updated.\r\n  - Can still abbreviate to `--yes` on the command line.\r\n- Config file now uses standard YAML list syntax with `  - list entries`, one per line.\r\n- `/settings` now includes the same announcement lines that would print at launch.\r\n- Sanity checks the `--editor-model` on launch now, same as main and weak models.\r\n- Added `--skip-sanity-check-repo` switch to speedup launch in large repos.\r\n- Bugfix so architect mode handles Control-C properly.\r\n- Repo-map is deterministic now, with improved caching logic.\r\n- Improved commit message prompt.\r\n- Aider wrote 77% of the code in this release.",
+    "createdAt": "2024-10-04T22:27:13Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.59.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 7
+      },
+      {
+        "type": "heart",
+        "totalCount": 17
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 88
+      },
+      {
+        "login": "itlackey",
+        "contributions": 9
+      },
+      {
+        "login": "fry69",
+        "contributions": 2
+      },
+      {
+        "login": "mario7421",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.58.0",
+    "name": "Aider v0.58.0",
+    "body": "- [Use a pair of Architect/Editor models for improved coding](https://aider.chat/2024/09/26/architect.html)\r\n  - Use a strong reasoning model like o1-preview as your Architect.\r\n  - Use a cheaper, faster model like gpt-4o as your Editor.\r\n- New `--o1-preview` and `--o1-mini` shortcuts.\r\n- Support for new Gemini 002 models.\r\n- Better support for Qwen 2.5 models.\r\n- Many confirmation questions can be skipped for the rest of the session with \"(D)on't ask again\" response.\r\n- Autocomplete for `/read-only` supports the entire filesystem.\r\n- New settings for completion menu colors.\r\n- New `/copy` command to copy the last LLM response to the clipboard.\r\n- Renamed `/clipboard` to `/paste`.\r\n- Will now follow HTTP redirects when scraping urls.\r\n- New `--voice-format` switch to send voice audio as wav/mp3/webm, by @mbailey.\r\n- ModelSettings takes `extra_params` dict to specify any extras to pass to `litellm.completion()`.\r\n- Support for cursor shapes when in vim mode.\r\n- Numerous bug fixes.\r\n- Aider wrote 53% of the code in this release.\r\n\r\n<img width=\"832\" alt=\"2024-09-29_08-11-37\" src=\"https://github.com/user-attachments/assets/96b05440-e0f5-49fe-9390-adcbf7ad75d1\">\r\n",
+    "createdAt": "2024-09-29T15:18:38Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.58.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 45
+      },
+      {
+        "type": "rocket",
+        "totalCount": 5
+      },
+      {
+        "type": "eyes",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 97
+      },
+      {
+        "login": "itlackey",
+        "contributions": 1
+      },
+      {
+        "login": "fry69",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.57.0",
+    "name": "Aider v0.57.0",
+    "body": "- Support for OpenAI o1 models:\r\n  - o1-preview now works well with diff edit format.\r\n  - o1-preview with diff now matches SOTA leaderboard result with whole edit format.\r\n  - `aider --model o1-mini`\r\n  - `aider --model o1-preview`\r\n- On Windows, `/run` correctly uses PowerShell or cmd.exe.\r\n- Support for new 08-2024 Cohere models, by @jalammar.\r\n- Can now recursively add directories with `/read-only`.\r\n- User input prompts now fall back to simple `input()` if `--no-pretty` or a Windows console is not available.\r\n- Improved sanity check of git repo on startup.\r\n- Improvements to prompt cache chunking strategy.\r\n- Removed \"No changes made to git tracked files\".\r\n- Numerous bug fixes for corner case crashes.\r\n- Updated all dependency versions.\r\n- Aider wrote 70% of the code in this release.",
+    "createdAt": "2024-09-21T20:38:42Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.57.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 27
+      },
+      {
+        "type": "hooray",
+        "totalCount": 10
+      },
+      {
+        "type": "heart",
+        "totalCount": 6
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 96
+      },
+      {
+        "login": "youknow04",
+        "contributions": 1
+      },
+      {
+        "login": "anjor",
+        "contributions": 1
+      },
+      {
+        "login": "jalammar",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.56.0",
+    "name": "Aider v0.56.0",
+    "body": "- Enables prompt caching for Sonnet via OpenRouter by @fry69\r\n- Enables 8k output tokens for Sonnet via VertexAI and DeepSeek V2.5.\r\n- New `/report` command to open your browser with a pre-populated GitHub Issue.\r\n- New `--chat-language` switch to set the spoken language.\r\n- Now `--[no-]suggest-shell-commands` controls both prompting for and offering to execute shell commands.\r\n- Check key imports on launch, provide helpful error message if dependencies aren't available.\r\n- Renamed `--models` to `--list-models` by @fry69.\r\n- Numerous bug fixes for corner case crashes.\r\n- Aider wrote 56% of the code in this release.",
+    "createdAt": "2024-09-09T21:45:11Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.56.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 6
+      },
+      {
+        "type": "rocket",
+        "totalCount": 8
+      },
+      {
+        "type": "heart",
+        "totalCount": 4
+      },
+      {
+        "type": "laugh",
+        "totalCount": 3
+      },
+      {
+        "type": "+1",
+        "totalCount": 27
+      },
+      {
+        "type": "eyes",
+        "totalCount": 2
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 93
+      },
+      {
+        "login": "fry69",
+        "contributions": 5
+      },
+      {
+        "login": "cheahjs",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.55.0",
+    "name": "Aider v0.55.0",
+    "body": "- Offer to submit a GitHub issue pre-filled with uncaught exception info.\r\n- Numerous corner case bug fixes submitted via new pre-filled crash report feature.\r\n- New `/settings` command to show active settings.\r\n- Startup QOL improvements:\r\n  - Sanity check the git repo and exit gracefully on problems.\r\n  - Pause for confirmation after model sanity check to allow user to review warnings.\r\n- Include important devops files in the repo map. \r\n- Don't ask again in current session about a file the user has said not to add to the chat.\r\n- Only print the pip command when self updating on Windows, without running it.\r\n- Converted many error messages to warning messages.\r\n- Added `--tool-warning-color` setting.\r\n- Disabled built in linter for typescript.\r\n- Catch `/voice` transcription exceptions, show the WAV file so the user can recover it.\r\n- Adopted setuptools_scm to provide `vX.Y.Z.dev` version naming with git hashes.\r\n- Share active test and lint commands with the LLM.\r\n- Added --verbose debug output for shell commands.\r\n- Do not fuzzy match filenames when LLM is creating a new file, by @ozapinq\r\n- Only show cache warming status update if `--verbose`.\r\n- Bugfix for shell commands on Windows.\r\n- Refuse to make git repo in $HOME, warn user.\r\n- Added `--update` as an alias for `--upgrade`.\r\n- Bugfix to completions for `/model` command.\r\n- Aider wrote 53% of the code in this release.",
+    "createdAt": "2024-09-04T16:12:47Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.55.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 5
+      },
+      {
+        "type": "hooray",
+        "totalCount": 4
+      },
+      {
+        "type": "+1",
+        "totalCount": 12
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.54.0",
+    "name": "Aider v0.54.0",
+    "body": "- Added model settings for `gemini/gemini-1.5-pro-exp-0827` and\r\n`gemini/gemini-1.5-flash-exp-0827`.\r\n- Shell and `/run` commands can now be interactive in environments where a pty is available.\r\n- Optionally share output of suggested shell commands back to the LLM.\r\n- New `--[no-]suggest-shell-commands` switch to configure shell commands.\r\n- Performance improvements for autocomplete in large/mono repos.\r\n- New `--upgrade` switch to install latest version of aider from pypi.\r\n- Bugfix to `--show-prompt`.\r\n- Disabled automatic reply to the LLM on `/undo` for all models.\r\n- Removed pager from `/web` output.\r\n- Aider wrote 64% of the code in this release.",
+    "createdAt": "2024-08-28T14:09:27Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.54.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 6
+      },
+      {
+        "type": "rocket",
+        "totalCount": 7
+      },
+      {
+        "type": "+1",
+        "totalCount": 12
+      },
+      {
+        "type": "heart",
+        "totalCount": 5
+      },
+      {
+        "type": "eyes",
+        "totalCount": 1
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 97
+      },
+      {
+        "login": "cheahjs",
+        "contributions": 2
+      },
+      {
+        "login": "akaihola",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.53.0",
+    "name": "Aider v0.53.0",
+    "body": "- [Keep your prompt cache from expiring](https://aider.chat/docs/usage/caching.html#preventing-cache-expiration) with `--cache-keepalive-pings`.\r\n  - Pings the API every 5min to keep the cache warm.\r\n- You can now bulk accept/reject a series of add url and run shell confirmations.\r\n- Improved matching of filenames from S/R blocks with files in chat.\r\n- Stronger prompting for Sonnet to make edits in code chat mode.\r\n- Stronger prompting for the LLM to specify full file paths.\r\n- Improved shell command prompting.\r\n- Weak model now uses `extra_headers`, to support Anthropic beta features.\r\n- New `--install-main-branch` to update to the latest dev version of aider.\r\n- Improved error messages on attempt to add not-git subdir to chat.\r\n- Show model metadata info on `--verbose`.\r\n- Improved warnings when LLMs env variables aren't set.\r\n- Bugfix to windows filenames which contain `\\_`.\r\n- Aider wrote 59% of the code in this release.",
+    "createdAt": "2024-08-27T13:57:12Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.53.0",
+    "reactions": [
+      {
+        "type": "eyes",
+        "totalCount": 2
+      },
+      {
+        "type": "hooray",
+        "totalCount": 8
+      },
+      {
+        "type": "rocket",
+        "totalCount": 6
+      },
+      {
+        "type": "heart",
+        "totalCount": 4
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      },
+      {
+        "type": "+1",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.52.0",
+    "name": "Aider v0.52.0",
+    "body": "- Aider now offers to run shell commands:\r\n  - Launch a browser to view updated html/css/js.\r\n  - Install new dependencies.\r\n  - Run DB migrations.\r\n  - Run the program to exercise changes.\r\n  - Run new test cases.\r\n- `/read` and `/drop` now expand `~` to the home dir.\r\n- Show the active chat mode at aider prompt.\r\n- New `/reset` command to `/drop` files and `/clear` chat history.\r\n- New `--map-multiplier-no-files` to control repo map size multiplier when no files are in the chat.\r\n  - Reduced default multiplier to 2.\r\n- Bugfixes and improvements to auto commit sequencing.\r\n- Improved formatting of token reports and confirmation dialogs.\r\n- Default OpenAI model is now `gpt-4o-2024-08-06`.\r\n- Bumped dependencies to pickup litellm bugfixes.\r\n- Aider wrote 68% of the code in this release.\r\n\r\n[![Shell commands demo](https://aider.chat/assets/shell-cmds.jpg)](https://aider.chat/assets/shell-cmds-small.mp4)\r\n",
+    "createdAt": "2024-08-23T15:43:17Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.52.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 14
+      },
+      {
+        "type": "hooray",
+        "totalCount": 5
+      },
+      {
+        "type": "eyes",
+        "totalCount": 1
+      },
+      {
+        "type": "rocket",
+        "totalCount": 4
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      },
+      {
+        "type": "+1",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.51.0",
+    "name": "Aider v0.51.0",
+    "body": "- Prompt caching for Anthropic models with `--cache-prompts`.\r\n  - Caches the system prompt, repo map and `/read-only` files.\r\n- Repo map recomputes less often in large/mono repos or when caching enabled.\r\n  - Use `--map-refresh <always|files|manual|auto>` to configure.\r\n- Improved cost estimate logic for caching.\r\n- Improved editing performance on Jupyter Notebook `.ipynb` files.\r\n- Show which config yaml file is loaded with `--verbose`.\r\n- Bumped dependency versions.\r\n- Bugfix: properly load `.aider.models.metadata.json` data.\r\n- Bugfix: Using `--msg /ask ...` caused an exception.\r\n- Bugfix: litellm tokenizer bug for images.\r\n- Aider wrote 56% of the code in this release.\r\n\r\n<img width=\"871\" alt=\"2024-08-20_09-31-40\" src=\"https://github.com/user-attachments/assets/63f05c05-92b6-4f55-8c0f-a7f738480986\">\r\n\r\n",
+    "createdAt": "2024-08-20T15:49:44Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.51.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 20
+      },
+      {
+        "type": "rocket",
+        "totalCount": 11
+      },
+      {
+        "type": "heart",
+        "totalCount": 14
+      },
+      {
+        "type": "eyes",
+        "totalCount": 2
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      },
+      {
+        "type": "+1",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.50.0",
+    "name": "Aider v0.50.0",
+    "body": "- Infinite output for DeepSeek Coder, Mistral models in addition to Anthropic's models.\r\n- New `--deepseek` switch to use DeepSeek Coder.\r\n- DeepSeek Coder uses 8k token output.\r\n- New `--chat-mode <mode>` switch to launch in ask/help/code modes.\r\n- New `/code <message>` command request a code edit while in `ask` mode.\r\n- Web scraper is more robust if page never idles.\r\n- Improved token and cost reporting for infinite output.\r\n- Improvements and bug fixes for `/read` only files.\r\n- Switched from `setup.py` to `pyproject.toml`, by @branchvincent.\r\n- Bug fix to persist files added during `/ask`.\r\n- Bug fix for chat history size in `/tokens`.\r\n- Aider wrote 66% of the code in this release.",
+    "createdAt": "2024-08-13T19:13:27Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.50.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 19
+      },
+      {
+        "type": "rocket",
+        "totalCount": 10
+      },
+      {
+        "type": "hooray",
+        "totalCount": 9
+      },
+      {
+        "type": "heart",
+        "totalCount": 9
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "branchvincent",
+        "contributions": 1
+      },
+      {
+        "login": "aelaguiz",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.49.0",
+    "name": "Aider v0.49.0",
+    "body": "- Add read-only files to the chat context with `/read` and `--read`,  including from outside the git repo.\r\n- `/diff` now shows diffs of all changes resulting from your request, including lint and test fixes.\r\n- New `/clipboard` command to paste images or text from the clipboard, replaces `/add-clipboard-image`.\r\n- Now shows the markdown scraped when you add a url with `/web`.\r\n- When [scripting aider](https://aider.chat/docs/scripting.html) messages can now contain in-chat `/` commands.\r\n- Aider in docker image now suggests the correct command to update to latest version.\r\n- Improved retries on API errors (was easy to test during Sonnet outage).\r\n- Added `--mini` for `gpt-4o-mini`.\r\n- Bugfix to keep session cost accurate when using `/ask` and `/help`.\r\n- Performance improvements for repo map calculation.\r\n- `/tokens` now shows the active model.\r\n- Enhanced commit message attribution options:\r\n  - New `--attribute-commit-message-author` to prefix commit messages with 'aider: ' if aider authored the changes, replaces `--attribute-commit-message`.\r\n  - New `--attribute-commit-message-committer` to prefix all commit messages with 'aider: '.\r\n- Added `openai/gpt-4o-2024-08-06`.\r\n- Worked around litellm bug that removes OpenRouter app headers when using `extra_headers`.\r\n- Improved progress indication during repo map processing.\r\n- Removed obsolete 16k token limit on commit diffs, use per-model limits.\r\n- Aider wrote 61% of the code in this release.",
+    "createdAt": "2024-08-10T20:29:28Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.49.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 17
+      },
+      {
+        "type": "eyes",
+        "totalCount": 2
+      },
+      {
+        "type": "rocket",
+        "totalCount": 12
+      },
+      {
+        "type": "+1",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.48.0",
+    "name": "Aider v0.48.0",
+    "body": "- Performance improvements for large/mono repos.\r\n- Added `--subtree-only` to limit aider to current directory subtree.\r\n  - Should help with large/mono repo performance.\r\n- New `/add-clipboard-image` to add images to the chat from your clipboard.\r\n- Use `--map-tokens 1024` to use repo map with any model.\r\n- Support for Sonnet's 8k output window.\r\n  - [Aider already supported infinite output from Sonnet.](https://aider.chat/2024/07/01/sonnet-not-lazy.html)\r\n- Workaround litellm bug for retrying API server errors.\r\n- Upgraded dependencies, to pick up litellm bug fixes.\r\n- Aider wrote 44% of the code in this release.",
+    "createdAt": "2024-08-06T13:44:28Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.48.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 21
+      },
+      {
+        "type": "hooray",
+        "totalCount": 7
+      },
+      {
+        "type": "rocket",
+        "totalCount": 4
+      },
+      {
+        "type": "+1",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 97
+      },
+      {
+        "login": "deansher",
+        "contributions": 2
+      },
+      {
+        "login": "Taik",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.47.0",
+    "name": "Aider v0.47.0",
+    "body": "- [Commit message](https://aider.chat/docs/git.html#commit-messages) improvements:\r\n  - Added Conventional Commits guidelines to commit message prompt.\r\n  - Added `--commit-prompt` to customize the commit message prompt.\r\n  - Added strong model as a fallback for commit messages (and chat summaries).\r\n- [Linting](https://aider.chat/docs/usage/lint-test.html) improvements:\r\n  - Ask before fixing lint errors.\r\n  - Improved performance of `--lint` on all dirty files in repo.\r\n  - Improved lint flow, now doing code edit auto-commit before linting.\r\n  - Bugfix to properly handle subprocess encodings (also for `/run`).\r\n- Improved [docker support](https://aider.chat/docs/install/docker.html):\r\n  - Resolved permission issues when using `docker run --user xxx`.\r\n  - New `paulgauthier/aider-full` docker image, which includes all extras.\r\n- Switching to code and ask mode no longer summarizes the chat history.\r\n- Added graph of aider's contribution to each release.\r\n- Generic auto-completions are provided for `/commands` without a completion override.\r\n- Fixed broken OCaml tags file.\r\n- Bugfix in `/run` add to chat approval logic.\r\n- Aider wrote 58% of the code in this release.",
+    "createdAt": "2024-07-31T14:17:35Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.47.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 11
+      },
+      {
+        "type": "heart",
+        "totalCount": 7
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.46.0",
+    "name": "Aider v0.46.0",
+    "body": "- New `/ask <question>` command to ask about your code, without making any edits.\r\n- New `/chat-mode <mode>` command to switch chat modes:\r\n  - ask: Ask questions about your code without making any changes.\r\n  - code: Ask for changes to your code (using the best edit format).\r\n  - help: Get help about using aider (usage, config, troubleshoot).\r\n- Add `file: CONVENTIONS.md` to `.aider.conf.yml` to always load a specific file.\r\n  - Or `file: [file1, file2, file3]` to always load multiple files.\r\n- Enhanced token usage and cost reporting. Now works when streaming too.\r\n- Filename auto-complete for `/add` and `/drop` is now case-insensitive.\r\n- Commit message improvements:\r\n  - Updated commit message prompt to use imperative tense.\r\n  - Fall back to main model if weak model is unable to generate a commit message.\r\n- Stop aider from asking to add the same url to the chat multiple times.\r\n- Updates and fixes to `--no-verify-ssl`:\r\n  - Fixed regression that broke it in v0.42.0.\r\n  - Disables SSL certificate verification when `/web` scrapes websites.\r\n- Improved error handling and reporting in `/web` scraping functionality\r\n- Fixed syntax error in Elm's tree-sitter scm file (by @cjoach).\r\n- Handle UnicodeEncodeError when streaming text to the terminal.\r\n- Updated dependencies to latest versions.\r\n- Aider wrote 45% of the code in this release.",
+    "createdAt": "2024-07-29T13:42:50Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.46.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 20
+      },
+      {
+        "type": "heart",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "johanvts",
+        "contributions": 1
+      },
+      {
+        "login": "titusz",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.45.0",
+    "name": "Aider v0.45.0",
+    "body": "- GPT 4o mini scores like the original GPT 3.5 on aider's code editing benchmark, using whole edit format.\r\n- Aider is better at offering to add files to the chat on Windows.\r\n- Bugfix corner cases for `/undo` with new files or new repos.\r\n- Now shows last 4 characters of API keys in `--verbose` output.\r\n- Bugfix to precedence of multiple `.env` files.\r\n- Bugfix to gracefully handle HTTP errors when installing pandoc.\r\n- Aider wrote 42% of the code in this release.",
+    "createdAt": "2024-07-18T19:11:18Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.45.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 20
+      },
+      {
+        "type": "heart",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 99
+      },
+      {
+        "login": "youknow04",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.44.0",
+    "name": "Aider v0.44.0",
+    "body": "- Default pip install size reduced by 3-12x.\r\n- Added 3 package extras, which aider will offer to install when needed:\r\n  - `aider-chat[help]`\r\n  - `aider-chat[browser]`\r\n  - `aider-chat[playwright]`\r\n- Improved regex for detecting URLs in user chat messages.\r\n- Bugfix to globbing logic when absolute paths are included in `/add`.\r\n- Simplified output of `--models`.\r\n- The `--check-update` switch was renamed to `--just-check-updated`.\r\n- The `--skip-check-update` switch was renamed to `--[no-]check-update`.\r\n- Aider wrote 29% of the code in this release (157/547 lines).",
+    "createdAt": "2024-07-16T14:51:44Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.44.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 9
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "youknow04",
+        "contributions": 1
+      },
+      {
+        "login": "DubbleClick",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.43.0",
+    "name": "Aider v0.43.0",
+    "body": "- Use `/help <question>` to [ask for help about using aider](https://aider.chat/docs/troubleshooting/support.html), customizing settings,\r\ntroubleshooting, using LLMs, etc.\r\n- Allow multiple use of `/undo`.\r\n- All config/env/yml/json files now load from home, git root, cwd and named command line switch.\r\n- New `$HOME/.aider/caches` dir for app-wide expendable caches.\r\n- Default `--model-settings-file` is now `.aider.model.settings.yml`.\r\n- Default `--model-metadata-file` is now `.aider.model.metadata.json`.\r\n- Bugfix affecting launch with `--no-git`.",
+    "createdAt": "2024-07-07T13:19:41Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.43.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 10
+      },
+      {
+        "type": "heart",
+        "totalCount": 6
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.42.0",
+    "name": "Aider v0.42.0",
+    "body": "- Performance release:\r\n  - 5X faster launch!\r\n  - Faster auto-complete in large git repos (users report ~100X speedup)!",
+    "createdAt": "2024-07-04T14:22:28Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.42.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 12
+      },
+      {
+        "type": "rocket",
+        "totalCount": 7
+      },
+      {
+        "type": "hooray",
+        "totalCount": 5
+      },
+      {
+        "type": "heart",
+        "totalCount": 5
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 94
+      },
+      {
+        "login": "jvmncs",
+        "contributions": 1
+      },
+      {
+        "login": "taha-yassine",
+        "contributions": 1
+      },
+      {
+        "login": "yamitzky",
+        "contributions": 2
+      },
+      {
+        "login": "aelaguiz",
+        "contributions": 1
+      },
+      {
+        "login": "RenFraser",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.41.0",
+    "name": "Aider v0.41.0",
+    "body": "- [Allow Claude 3.5 Sonnet to stream back >4k tokens!](https://aider.chat/2024/07/01/sonnet-not-lazy.html)\r\n  - It is the first model capable of writing such large coherent, useful code edits.\r\n  - Do large refactors or generate multiple files of new code in one go.\r\n- Aider now uses `claude-3-5-sonnet-20240620` by default if `ANTHROPIC_API_KEY` is set in the environment.\r\n- [Enabled image support](https://aider.chat/docs/images-urls.html) for 3.5 Sonnet and for GPT-4o & 3.5 Sonnet via OpenRouter (by @yamitzky).\r\n- Added `--attribute-commit-message` to prefix aider's commit messages with \"aider:\".\r\n- Fixed regression in quality of one-line commit messages.\r\n- Automatically retry on Anthropic `overloaded_error`.\r\n- Bumped dependency versions.",
+    "createdAt": "2024-07-01T19:18:28Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.41.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 15
+      },
+      {
+        "type": "rocket",
+        "totalCount": 4
+      },
+      {
+        "type": "hooray",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 96
+      },
+      {
+        "login": "yamitzky",
+        "contributions": 2
+      },
+      {
+        "login": "aelaguiz",
+        "contributions": 1
+      },
+      {
+        "login": "RenFraser",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.40.0",
+    "name": "Aider v0.40.0",
+    "body": "- Improved prompting to discourage Sonnet from wasting tokens emitting unchanging code (#705).\r\n- Improved error info for token limit errors.\r\n- Options to suppress adding \"(aider)\" to the [git author and committer names](https://aider.chat/docs/git.html#commit-attribution).\r\n- Use `--model-settings-file` to customize per-model settings, like use of repo-map (by @caseymcc).\r\n- Improved invocation of flake8 linter for python code.",
+    "createdAt": "2024-06-24T20:37:40Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.40.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 3
+      },
+      {
+        "type": "rocket",
+        "totalCount": 5
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 92
+      },
+      {
+        "login": "spdustin",
+        "contributions": 1
+      },
+      {
+        "login": "jpshack-at-palomar",
+        "contributions": 2
+      },
+      {
+        "login": "jpshackelford",
+        "contributions": 4
+      },
+      {
+        "login": "daniel-vainsencher",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.39.0",
+    "name": "v0.39.0",
+    "body": "- Use `--sonnet` for Claude 3.5 Sonnet, which is the top model on [aider's LLM code editing leaderboard](https://aider.chat/docs/leaderboards/#claude-35-sonnet-takes-the-top-spot).\r\n- All `AIDER_xxx` environment variables can now be set in `.env` (by @jpshack-at-palomar).\r\n- Use `--llm-history-file` to log raw messages sent to the LLM (by @daniel-vainsencher).\r\n- Commit messages are no longer prefixed with \"aider:\". Instead the git author and committer names have \"(aider)\" added.",
+    "createdAt": "2024-06-20T21:48:10Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.39.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 12
+      },
+      {
+        "type": "heart",
+        "totalCount": 5
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 79
+      },
+      {
+        "login": "jpshack-at-palomar",
+        "contributions": 2
+      },
+      {
+        "login": "jpshackelford",
+        "contributions": 4
+      },
+      {
+        "login": "daniel-vainsencher",
+        "contributions": 2
+      },
+      {
+        "login": "nicolasperez19",
+        "contributions": 2
+      },
+      {
+        "login": "caseymcc",
+        "contributions": 10
+      },
+      {
+        "login": "youknow04",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.38.0",
+    "name": "v0.38.0",
+    "body": "- Use `--vim` for [vim keybindings](https://aider.chat/docs/commands.html#vi) in the chat.\r\n- [Add LLM metadata](https://aider.chat/docs/llms/warnings.html#specifying-context-window-size-and-token-costs) via `.aider.models.json` file (by @caseymcc).\r\n- More detailed [error messages on token limit errors](https://aider.chat/docs/troubleshooting/token-limits.html).\r\n- Single line commit messages, without the recent chat messages.\r\n- Ensure `--commit --dry-run` does nothing.\r\n- Have playwright wait for idle network to better scrape js sites.\r\n- Documentation updates, moved into website/ subdir.\r\n- Moved tests/ into aider/tests/.",
+    "createdAt": "2024-06-17T03:57:10Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.38.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 5
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 86
+      },
+      {
+        "login": "nicolasperez19",
+        "contributions": 1
+      },
+      {
+        "login": "caseymcc",
+        "contributions": 10
+      },
+      {
+        "login": "youknow04",
+        "contributions": 1
+      },
+      {
+        "login": "prmbiy",
+        "contributions": 1
+      },
+      {
+        "login": "develmusa",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.37.0",
+    "name": "v0.37.0",
+    "body": "- Repo map is now optimized based on text of chat history as well as files added to chat.\r\n- Improved prompts when no files have been added to chat to solicit LLM file suggestions.\r\n- Aider will notice if you paste a URL into the chat, and offer to scrape it.\r\n- Performance improvements the repo map, especially in large repos.\r\n- Aider will not offer to add bare filenames like `make` or `run` which may just be words.\r\n- Properly override `GIT_EDITOR` env for commits if it is already set.\r\n- Detect supported audio sample rates for `/voice`.\r\n- Other small bug fixes.",
+    "createdAt": "2024-06-04T17:30:49Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.37.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 8
+      },
+      {
+        "type": "+1",
+        "totalCount": 7
+      },
+      {
+        "type": "hooray",
+        "totalCount": 2
+      },
+      {
+        "type": "rocket",
+        "totalCount": 2
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.36.0",
+    "name": "v0.36.0",
+    "body": "- [Aider can now lint your code and fix any errors](https://aider.chat/2024/05/22/linting.html).\r\n  - Aider automatically lints and fixes after every LLM edit.\r\n  - You can manually lint-and-fix files with `/lint` in the chat or `--lint` on the command line.\r\n  - Aider includes built in basic linters for all supported tree-sitter languages.\r\n  - You can also configure aider to use your preferred linter with `--lint-cmd`.\r\n- Aider has additional support for running tests and fixing problems.\r\n  - Configure your testing command with `--test-cmd`.\r\n  - Run tests with `/test` or from the command line with `--test`.\r\n  - Aider will automatically attempt to fix any test failures.",
+    "createdAt": "2024-05-22T19:15:53Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.36.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 11
+      },
+      {
+        "type": "+1",
+        "totalCount": 1
+      },
+      {
+        "type": "rocket",
+        "totalCount": 1
+      },
+      {
+        "type": "eyes",
+        "totalCount": 1
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.35.0",
+    "name": "v0.35.0",
+    "body": "- Aider now uses GPT-4o by default.\r\n  - GPT-4o tops the [aider LLM code editing leaderboard](https://aider.chat/docs/leaderboards/) at 72.9%, versus 68.4% for Opus.\r\n  - GPT-4o takes second on [aider's refactoring leaderboard](https://aider.chat/docs/leaderboards/#code-refactoring-leaderboard) with 62.9%, versus Opus at 72.3%.\r\n- Added `--restore-chat-history` to restore prior chat history on launch, so you can continue the last conversation.\r\n- Improved reflection feedback to LLMs using the diff edit format.\r\n- Improved retries on `httpx` errors.",
+    "createdAt": "2024-05-13T18:18:51Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.35.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 5
+      },
+      {
+        "type": "heart",
+        "totalCount": 8
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.34.0",
+    "name": "v0.34.0",
+    "body": "- Updated prompting to use more natural phrasing about files, the git repo, etc. Removed reliance on read-write/read-only terminology.\r\n- Refactored prompting to unify some phrasing across edit formats.\r\n- Enhanced the canned assistant responses used in prompts.\r\n- Added explicit model settings for `openrouter/anthropic/claude-3-opus`, `gpt-3.5-turbo`\r\n- Added `--show-prompts` debug switch.\r\n- Bugfix: catch and retry on all litellm exceptions.",
+    "createdAt": "2024-05-10T16:14:30Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.34.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 2
+      },
+      {
+        "type": "hooray",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.33.0",
+    "name": "v0.33.0",
+    "body": "- Added native support for [Deepseek models](https://aider.chat/docs/llms.html#deepseek) using `DEEPSEEK_API_KEY` and `deepseek/deepseek-chat`, etc rather than as a generic OpenAI compatible API.",
+    "createdAt": "2024-05-08T16:38:14Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.33.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 2
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.32.0",
+    "name": "v0.32.0",
+    "body": "- [Aider LLM code editing leaderboards](https://aider.chat/docs/leaderboards/) that rank popular models according to their ability to edit code.\r\n  - Leaderboards include GPT-3.5/4 Turbo, Opus, Sonnet, Gemini 1.5 Pro, Llama 3, Deepseek Coder & Command-R+.\r\n- Gemini 1.5 Pro now defaults to a new diff-style edit format (diff-fenced), enabling it to work better with larger code bases.\r\n- Support for Deepseek-V2, via more a flexible config of system messages in the diff edit format.\r\n- Improved retry handling on errors from model APIs.\r\n- Benchmark outputs results in YAML, compatible with leaderboard.",
+    "createdAt": "2024-05-07T23:36:15Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.32.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 6
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.31.0",
+    "name": "v0.31.0",
+    "body": "- [Aider is now also AI pair programming in your browser!](https://aider.chat/2024/05/02/browser.html) Use the `--browser` switch to launch an experimental browser based version of aider.\r\n- Switch models during the chat with `/model <name>` and search the list of available models with `/models <query>`.",
+    "createdAt": "2024-05-02T16:09:35Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.31.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 6
+      },
+      {
+        "type": "heart",
+        "totalCount": 7
+      },
+      {
+        "type": "hooray",
+        "totalCount": 7
+      },
+      {
+        "type": "eyes",
+        "totalCount": 2
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.30.0",
+    "name": "v0.30.0",
+    "body": "- Added [Gemini 1.5 Pro](https://aider.chat/docs/llms.html#gemini) as a recommended free model.\r\n- Added better support for [Groq's free Llama3 70B model](https://aider.chat/docs/llms.html#groq).\r\n- Allow repo map for \"whole\" edit format.\r\n- Added `--models <MODEL-NAME>` to search the available models.\r\n- Added `--no-show-model-warnings` to silence model warnings.\r\n- Improved [model warnings](https://aider.chat/docs/llms.html#model-warnings) for unknown or unfamiliar models\r\n",
+    "createdAt": "2024-04-24T00:39:41Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.30.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 12
+      },
+      {
+        "type": "hooray",
+        "totalCount": 5
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.29.0",
+    "name": "v0.29.0",
+    "body": "- Added support for [directly connecting to Anthropic, Cohere, Gemini and many other LLM providers](https://aider.chat/docs/llms.html).\r\n- Added `--weak-model <model-name>` which allows you to specify which model to use for commit messages and chat history summarization.\r\n- New command line switches for working with popular models:\r\n  - `--4-turbo-vision`\r\n  - `--opus`\r\n  - `--sonnet`\r\n  - `--anthropic-api-key`\r\n- Improved \"whole\" and \"diff\" backends to better support [Cohere's free to use Command-R+ model](https://aider.chat/docs/llms.html#cohere).\r\n- Allow `/add` of images from anywhere in the filesystem.\r\n- Fixed crash when operating in a repo in a detached HEAD state.\r\n- Fix: Use the same default model in CLI and python scripting.",
+    "createdAt": "2024-04-21T20:04:04Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.29.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 7
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 99
+      },
+      {
+        "login": "a1ooha",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.28.0",
+    "name": "v0.28.0",
+    "body": "- Added support for new `gpt-4-turbo-2024-04-09` and `gpt-4-turbo` models.\r\n  - Benchmarked at 61.7% on Exercism benchmark, comparable to `gpt-4-0613` and worse than the `gpt-4-preview-XXXX` models. See [recent Exercism benchmark results](https://aider.chat/2024/03/08/claude-3.html).\r\n  - Benchmarked at 34.1% on the refactoring/laziness benchmark, significantly worse than the `gpt-4-preview-XXXX` models. See [recent refactor bencmark results](https://aider.chat/2024/01/25/benchmarks-0125.html).\r\n  - Aider continues to default to `gpt-4-1106-preview` as it performs best on both benchmarks, and significantly better on the refactoring/laziness benchmark.",
+    "createdAt": "2024-04-09T23:05:54Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.28.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 4
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "ryanfreckleton",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.27.0",
+    "name": "v0.27.0",
+    "body": "- Improved repomap support for typescript, by @ryanfreckleton.\r\n- Bugfix: Only /undo the files which were part of the last commit, don't stomp other dirty files\r\n- Bugfix: Show clear error message when OpenAI API key is not set.\r\n- Bugfix: Catch error for obscure languages without tags.scm file.",
+    "createdAt": "2024-03-22T17:58:42Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.27.0",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "ryanfreckleton",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.26.0",
+    "name": "v0.26.0",
+    "body": "- Use GPT-4 Turbo by default.\r\n- Added `-3` and `-4` switches to use GPT 3.5 or GPT-4 (non-Turbo).\r\n- Bug fix to avoid reflecting local git errors back to GPT.\r\n- Improved logic for opening git repo on launch.",
+    "createdAt": "2024-03-08T21:15:39Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.26.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.25.0",
+    "name": "v0.25.0",
+    "body": "- Issue a warning if user adds too much code to the chat.\r\n  - https://aider.chat/docs/faq.html#how-can-i-add-all-the-files-to-the-chat\r\n- Vocally refuse to add files to the chat that match `.aiderignore`\r\n  - Prevents bug where subsequent git commit of those files will fail.\r\n- Added `--openai-organization-id` argument.\r\n- Show the user a FAQ link if edits fail to apply.\r\n- Made past articles part of https://aider.chat/blog/",
+    "createdAt": "2024-03-04T20:38:28Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.25.0",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.24.0",
+    "name": "v0.24.0",
+    "body": "### v0.24.0\r\n\r\n- New `/web <url>` command which scrapes the url, turns it into fairly clean markdown and adds it to the chat.\r\n- Updated all OpenAI model names, pricing info\r\n- Default GPT 3.5 model is now `gpt-3.5-turbo-0125`.\r\n- Bugfix to the `!` alias for `/run`.",
+    "createdAt": "2024-02-10T15:35:02Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.24.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 8
+      },
+      {
+        "type": "heart",
+        "totalCount": 8
+      },
+      {
+        "type": "eyes",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 99
+      },
+      {
+        "login": "zackees",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.23.0",
+    "name": "v0.23.0",
+    "body": "### v0.23.0\r\n\r\n- Added support for `--model gpt-4-0125-preview` and OpenAI's alias `--model gpt-4-turbo-preview`. The `--4turbo` switch remains an alias for `--model gpt-4-1106-preview` at this time.\r\n- New `/test` command that runs a command and adds the output to the chat on non-zero exit status.\r\n- Improved streaming of markdown to the terminal.\r\n- Added `/quit` as alias for `/exit`.\r\n- Added `--skip-check-update` to skip checking for the update on launch.\r\n- Added `--openrouter` as a shortcut for `--openai-api-base https://openrouter.ai/api/v1`\r\n- Fixed bug preventing use of env vars `OPENAI_API_BASE, OPENAI_API_TYPE, OPENAI_API_VERSION, OPENAI_API_DEPLOYMENT_ID`.",
+    "createdAt": "2024-02-03T16:40:17Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.23.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 10
+      },
+      {
+        "type": "rocket",
+        "totalCount": 4
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 95
+      },
+      {
+        "login": "zackees",
+        "contributions": 1
+      },
+      {
+        "login": "ctoth",
+        "contributions": 3
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.22.0",
+    "name": "v0.22.0",
+    "body": "### v0.22.0\r\n\r\n- Improvements for unified diff editing format.\r\n- Added ! as an alias for /run.\r\n- Autocomplete for /add and /drop now properly quotes filenames with spaces.\r\n- The /undo command asks GPT not to just retry reverted edit.",
+    "createdAt": "2024-01-23T01:51:33Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.22.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 5
+      },
+      {
+        "type": "heart",
+        "totalCount": 4
+      },
+      {
+        "type": "rocket",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 91
+      },
+      {
+        "login": "ctoth",
+        "contributions": 3
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 6
+      }
+    ]
+  },
+  {
+    "tagName": "v0.21.0",
+    "name": "v0.21.0",
+    "body": "### v0.21.0\r\n\r\n- Support for python 3.12.\r\n- Improvements to unified diff editing format.\r\n- New `--check-update` arg to check if updates are available and exit with status code.",
+    "createdAt": "2024-01-08T18:44:03Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.21.0",
+    "reactions": [
+      {
+        "type": "rocket",
+        "totalCount": 9
+      },
+      {
+        "type": "heart",
+        "totalCount": 5
+      },
+      {
+        "type": "hooray",
+        "totalCount": 2
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 91
+      },
+      {
+        "login": "ctoth",
+        "contributions": 3
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 6
+      }
+    ]
+  },
+  {
+    "tagName": "v0.20.0",
+    "name": "v0.20.0",
+    "body": "### v0.20.0\r\n\r\n- Add images to the chat to automatically use GPT-4 Vision, by @joshuavial\r\n\r\n- Bugfixes:\r\n  - Improved unicode encoding for `/run` command output, by @ctoth\r\n  - Prevent false auto-commits on Windows, by @ctoth",
+    "createdAt": "2024-01-04T15:43:02Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.20.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 2
+      },
+      {
+        "type": "hooray",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 91
+      },
+      {
+        "login": "ctoth",
+        "contributions": 3
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 6
+      }
+    ]
+  },
+  {
+    "tagName": "v0.19.0",
+    "name": "v0.19.0",
+    "body": "### v0.19.0\r\n\r\n- [Significantly reduced \"lazy\" coding from GPT-4 Turbo due to new unified diff edit format](https://aider.chat/docs/unified-diffs.html)\r\n  - Score improves from 20% to 61% on new \"laziness benchmark\".\r\n  - Aider now uses unified diffs by default for `gpt-4-1106-preview`.\r\n- New `--4-turbo` command line switch as a shortcut for `--model gpt-4-1106-preview`.\r\n",
+    "createdAt": "2023-12-20T02:12:27Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.19.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 8
+      },
+      {
+        "type": "rocket",
+        "totalCount": 3
+      },
+      {
+        "type": "eyes",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 94
+      },
+      {
+        "login": "invalid-email-address",
+        "contributions": 5
+      },
+      {
+        "login": "zestysoft",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.18.1",
+    "name": "v0.18.1",
+    "body": "### v0.18.1\r\n\r\n- Upgraded to new openai python client v1.3.7.",
+    "createdAt": "2023-12-14T20:21:20Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.18.1",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 5
+      },
+      {
+        "type": "heart",
+        "totalCount": 2
+      },
+      {
+        "type": "rocket",
+        "totalCount": 2
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 94
+      },
+      {
+        "login": "invalid-email-address",
+        "contributions": 5
+      },
+      {
+        "login": "zestysoft",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.18.0",
+    "name": "v0.18.0",
+    "body": "### v0.18.0\r\n\r\n- Improved prompting for both GPT-4 and GPT-4 Turbo.\r\n  - Far fewer edit errors from GPT-4 Turbo (`gpt-4-1106-preview`).\r\n  - Significantly better benchmark results from the June GPT-4 (`gpt-4-0613`). Performance leaps from 47%/64% up to 51%/71%.\r\n- Fixed bug where in-chat files were marked as both read-only and ready-write, sometimes confusing GPT.\r\n- Fixed bug to properly handle repos with submodules.",
+    "createdAt": "2023-11-17T23:51:07Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.18.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 9
+      },
+      {
+        "type": "heart",
+        "totalCount": 5
+      },
+      {
+        "type": "rocket",
+        "totalCount": 3
+      },
+      {
+        "type": "hooray",
+        "totalCount": 2
+      },
+      {
+        "type": "laugh",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.17.0",
+    "name": "v0.17.0",
+    "body": "### v0.17.0\r\n\r\n- Support for OpenAI's new 11/06 models:\r\n  - gpt-4-1106-preview with 128k context window\r\n  - gpt-3.5-turbo-1106 with 16k context window\r\n- [Benchmarks for OpenAI's new 11/06 models](https://aider.chat/docs/benchmarks-1106.html)\r\n- Streamlined [API for scripting aider, added docs](https://aider.chat/docs/faq.html#can-i-script-aider)\r\n- Ask for more concise SEARCH/REPLACE blocks. [Benchmarked](https://aider.chat/docs/benchmarks.html) at 63.9%, no regression.\r\n- Improved repo-map support for elisp.\r\n- Fixed crash bug when `/add` used on file matching `.gitignore`\r\n- Fixed misc bugs to catch and handle unicode decoding errors.",
+    "createdAt": "2023-11-07T04:27:12Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.17.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 19
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "omri123",
+        "contributions": 1
+      },
+      {
+        "login": "jackhallam",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.16.1",
+    "name": "v0.16.1",
+    "body": "### v0.16.1\r\n\r\n- Updated tree-sitter dependencies to streamline the pip install process\r\n\r\n### Plus everything from v0.16.0\r\n\r\n- [Improved repository map using tree-sitter](https://aider.chat/docs/repomap.html)\r\n- Switched from \"edit block\" to \"search/replace block\", which reduced malformed edit blocks. [Benchmarked](https://aider.chat/docs/benchmarks.html) at 66.2%, no regression.\r\n- Improved handling of malformed edit blocks targetting multiple edits to the same file. [Benchmarked](https://aider.chat/docs/benchmarks.html) at 65.4%, no regression.\r\n- Bugfix to properly handle malformed `/add` wildcards.",
+    "createdAt": "2023-10-31T21:14:02Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.16.1",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 99
+      },
+      {
+        "login": "jackhallam",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.16.0",
+    "name": "v0.16.0",
+    "body": "### v0.16.0\r\n\r\n- [Improved repository map using tree-sitter](https://aider.chat/docs/repomap.html)\r\n- Switched from \"edit block\" to \"search/replace block\", which reduced malformed edit blocks. [Benchmarked](https://aider.chat/docs/benchmarks.html) at 66.2%, no regression.\r\n- Improved handling of malformed edit blocks targetting multiple edits to the same file. [Benchmarked](https://aider.chat/docs/benchmarks.html) at 65.4%, no regression.\r\n- Bugfix to properly handle malformed `/add` wildcards.",
+    "createdAt": "2023-10-29T20:24:22Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.16.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 9
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.15.0",
+    "name": "v0.15.0",
+    "body": "### v0.15.0\r\n\r\n- Added support for `.aiderignore` file, which instructs aider to ignore parts of the git repo.\r\n- New `--commit` cmd line arg, which just commits all pending changes with a sensible commit message geneated by gpt-3.5.\r\n- Added universal ctags and multiple architectures to the [aider docker image](https://aider.chat/docs/docker.html)\r\n- `/run` and `/git` now accept full shell commands, like: `/run (cd subdir; ls)`\r\n- Restored missing `--encoding` cmd line switch.",
+    "createdAt": "2023-10-20T16:55:13Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.15.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 89
+      },
+      {
+        "login": "fahmad91",
+        "contributions": 5
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 2
+      },
+      {
+        "login": "Taik",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.14.2",
+    "name": "v0.14.2",
+    "body": "### v0.14.2\r\n\r\n- Easily [run aider from a docker image](https://aider.chat/docs/docker.html)\r\n- Fixed bug with chat history summarization.\r\n- Fixed bug if `soundfile` package not available.\r\n\r\n### Plus previous changes from v0.14.x releases...\r\n\r\n- /add and /drop handle absolute filenames and quoted filenames\r\n- /add checks to be sure files are within the git repo (or root)\r\n- If needed, warn users that in-chat file paths are all relative to the git repo\r\n- Fixed /add bug in when aider launched in repo subdir\r\n- Show models supported by api/key if requested model isn't available\r\n- [Support for Claude2 and other LLMs via OpenRouter](https://aider.chat/docs/faq.html#accessing-other-llms-with-openrouter) by @joshuavial\r\n- Documentation for [running the aider benchmarking suite](https://github.com/paul-gauthier/aider/tree/main/benchmark)\r\n- Aider now requires Python >= 3.9\r\n",
+    "createdAt": "2023-10-18T16:36:01Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.14.2",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 78
+      },
+      {
+        "login": "fahmad91",
+        "contributions": 5
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 9
+      },
+      {
+        "login": "Taik",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.14.1",
+    "name": "v0.14.1",
+    "body": "### v0.14.1\r\n\r\n- /add and /drop handle absolute filenames and quoted filenames\r\n- /add checks to be sure files are within the git repo (or root)\r\n- If needed, warn users that in-chat file paths are all relative to the git repo\r\n- Fixed /add bug in when aider launched in repo subdir\r\n- Show models supported by api/key if requested model isn't available\r\n\r\n### Plus features from v0.14.0\r\n\r\n- [Support for Claude2 and other LLMs via OpenRouter](https://aider.chat/docs/faq.html#accessing-other-llms-with-openrouter) by @joshuavial\r\n- Documentation for [running the aider benchmarking suite](https://github.com/paul-gauthier/aider/tree/main/benchmark)\r\n- Aider now requires Python >= 3.9",
+    "createdAt": "2023-09-30T00:20:53Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.14.1",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 78
+      },
+      {
+        "login": "fahmad91",
+        "contributions": 5
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 9
+      },
+      {
+        "login": "Taik",
+        "contributions": 2
+      }
+    ]
+  },
+  {
+    "tagName": "v0.14.0",
+    "name": "v0.14.0",
+    "body": "### v0.14.0\r\n\r\n- [Support for Claude2 and other LLMs via OpenRouter](https://aider.chat/docs/faq.html#accessing-other-llms-with-openrouter) by @joshuavial\r\n- Documentation for [running the aider benchmarking suite](https://github.com/paul-gauthier/aider/tree/main/benchmark)\r\n- Aider now requires Python >= 3.9",
+    "createdAt": "2023-09-08T16:54:15Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.14.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 87
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 7
+      }
+    ]
+  },
+  {
+    "tagName": "v0.13.0",
+    "name": "v0.13.0",
+    "body": "### v0.13.0\r\n\r\n- [Only git commit dirty files that GPT tries to edit](https://aider.chat/docs/faq.html#how-did-v0130-change-git-usage)\r\n- Send chat history as prompt/context for Whisper voice transcription\r\n- Added `--voice-language` switch to constrain `/voice` to transcribe to a specific language\r\n- Late-bind importing `sounddevice`, as it was slowing down aider startup\r\n- Improved --foo/--no-foo switch handling for command line and yml config settings",
+    "createdAt": "2023-08-22T15:03:58Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.13.0",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.12.0",
+    "name": "v0.12.0",
+    "body": "### v0.12.0\r\n\r\n- [Voice-to-code](https://aider.chat/docs/voice.html) support, which allows you to code with your voice.\r\n- Fixed bug where /diff was causing crash.\r\n- Improved prompting for gpt-4, refactor of editblock coder.\r\n- [Benchmarked](https://aider.chat/docs/benchmarks.html) at 63.2% for gpt-4/diff, no regression.",
+    "createdAt": "2023-08-11T11:58:18Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.12.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 10
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 99
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.11.1",
+    "name": "v0.11.1",
+    "body": "### v0.11.1\r\n\r\n- Added a progress bar when initially creating a repo map.\r\n- Fixed bad commit message when adding new file to empty repo.\r\n- Fixed corner case of pending chat history summarization when dirty committing.\r\n- Fixed corner case of undefined `text` when using `--no-pretty`.\r\n- Fixed /commit bug from repo refactor, added test coverage.\r\n- [Benchmarked](https://aider.chat/docs/benchmarks.html) at 53.4% for gpt-3.5/whole (no regression).\r\n\r\n### Plus the changes from v0.11.0\r\n\r\n- Automatically summarize chat history to avoid exhausting context window.\r\n- More detail on dollar costs when running with `--no-stream`\r\n- Stronger GPT-3.5 prompt against skipping/eliding code in replies (51.9% [benchmark](https://aider.chat/docs/benchmarks.html), no regression)\r\n- Defend against GPT-3.5 or non-OpenAI models suggesting filenames surrounded by asterisks.\r\n- Refactored GitRepo code out of the Coder class.\r\n",
+    "createdAt": "2023-08-08T15:32:25Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.11.1",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 1
+      },
+      {
+        "login": "h0x91b",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.11.0",
+    "name": "v0.11.0",
+    "body": "### v0.11.0\r\n\r\n- Automatically summarize chat history to avoid exhausting context window.\r\n- More detail on dollar costs when running with `--no-stream`\r\n- Stronger GPT-3.5 prompt against skipping/eliding code in replies (51.9% [benchmark](https://aider.chat/docs/benchmarks.html), no regression)\r\n- Defend against GPT-3.5 or non-OpenAI models suggesting filenames surrounded by asterisks.\r\n- Refactored GitRepo code out of the Coder class.",
+    "createdAt": "2023-08-02T19:21:39Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.11.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.10.1",
+    "name": "v0.10.1",
+    "body": "### v0.10.1\r\n\r\n- /add and /drop always use paths relative to the git root\r\n- Encourage GPT to use language like \"add files to the chat\" to ask users for permission to edit them.\r\n\r\n### Plus changes from v0.10.0\r\n\r\n- Added `/git` command to run git from inside aider chats.\r\n- Use Meta-ENTER (Esc+ENTER in some environments) to enter multiline chat messages.\r\n- Create a `.gitignore` with `.aider*` to prevent users from accidentaly adding aider files to git.\r\n- Check pypi for newer versions and notify user.\r\n- Updated keyboard interrupt logic so that 2 ^C in 2 seconds always forces aider to exit.\r\n- Provide GPT with detailed error if it makes a bad edit block, ask for a retry.\r\n- Force `--no-pretty` if aider detects it is running inside a VSCode terminal.\r\n- [Benchmarked](https://aider.chat/docs/benchmarks.html) at 64.7% for gpt-4/diff (no regression)\r\n",
+    "createdAt": "2023-07-24T18:12:18Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.10.1",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 4
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 97
+      },
+      {
+        "login": "joshuavial",
+        "contributions": 2
+      },
+      {
+        "login": "ameramayreh",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.10.0",
+    "name": "v0.10.0",
+    "body": "- Added `/git` command to run git from inside aider chats.\r\n- Use Meta-ENTER (Esc+ENTER in some environments) to enter multiline chat messages.\r\n- Create a `.gitignore` with `.aider*` to prevent users from accidentaly adding aider files to git.\r\n- Check pypi for newer versions and notify user.\r\n- Updated keyboard interrupt logic so that 2 ^C in 2 seconds always forces aider to exit.\r\n- Provide GPT with detailed error if it makes a bad edit block, ask for a retry.\r\n- Force `--no-pretty` if aider detects it is running inside a VSCode terminal.\r\n- [Benchmarked](https://aider.chat/docs/benchmarks.html) at 64.7% for gpt-4/diff (no regression)",
+    "createdAt": "2023-07-22T12:02:03Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.10.0",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 99
+      },
+      {
+        "login": "ameramayreh",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.9.0",
+    "name": "v0.9.0",
+    "body": "- Support for the OpenAI models in [Azure](https://aider.chat/docs/faq.html#azure)\r\n- Added `--show-repo-map`\r\n- Improved output when retrying connections to the OpenAI API\r\n- Redacted api key from `--verbose` output\r\n- Bugfix: recognize and add files in subdirectories mentioned by user or GPT\r\n- [Benchmarked](https://aider.chat/docs/benchmarks.html) at 53.8% for gpt-3.5-turbo/whole",
+    "createdAt": "2023-07-16T12:47:24Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.9.0",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.8.3",
+    "name": "v0.8.3",
+    "body": "### v0.8.3\r\n\r\n- Added `--dark-mode` and `--light-mode` to select colors optimized for terminal background\r\n- Install docs link to [NeoVim plugin](https://github.com/joshuavial/aider.nvim) by @joshuavial\r\n- Reorganized the `--help` output\r\n- Bugfix/improvement to whole edit format, may improve coding editing for GPT-3.5\r\n- Bugfix and tests around git filenames with unicode characters\r\n- Bugfix so that aider throws an exception when OpenAI returns InvalidRequest\r\n- Bugfix/improvement to /add and /drop to recurse selected directories\r\n- Bugfix for live diff output when using \"whole\" edit format\r\n\r\n### Plus changes from earlier v0.8.x releases\r\n\r\n- Disabled general availability of gpt-4 (it's rolling out, not 100% available yet)\r\n- Ask to create a git repo if none found, to better track GPT's code changes\r\n- Glob wildcards are now supported in `/add` and `/drop` commands\r\n- Pass `--encoding` into ctags, require it to return `utf-8`\r\n- More robust handling of filepaths, to avoid 8.3 windows filenames\r\n- Added [FAQ](https://aider.chat/docs/faq.html)\r\n- ~Marked GPT-4 as generally available~\r\n- Bugfix for live diffs of whole coder with missing filenames\r\n- Bugfix for chats with multiple files\r\n- Bugfix in editblock coder prompt\r\n- [Benchmark comparing code editing in GPT-3.5 and GPT-4](https://aider.chat/docs/benchmarks.html)\r\n- Improved Windows support:\r\n  - Fixed bugs related to path separators in Windows\r\n  - Added a CI step to run all tests on Windows\r\n- Improved handling of Unicode encoding/decoding\r\n  - Explicitly read/write text files with utf-8 encoding by default (mainly benefits Windows)\r\n  - Added `--encoding` switch to specify another encoding\r\n  - Gracefully handle decoding errors\r\n- Added `--code-theme` switch to control the pygments styling of code blocks (by @kwmiebach)\r\n- Better status messages explaining the reason when ctags is disabled\r\n",
+    "createdAt": "2023-07-12T01:48:02Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.8.3",
+    "reactions": [
+      {
+        "type": "+1",
+        "totalCount": 3
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.8.2",
+    "name": "v0.8.2",
+    "body": "### v0.8.2\r\n\r\n- Disabled general availability of gpt-4 (it is rolling out, not 100% available yet)\r\n\r\n### Plus changes from earlier v0.8.x releases\r\n\r\n- Ask to create a git repo if none found, to better track GPT's code changes\r\n- Glob wildcards are now supported in `/add` and `/drop` commands\r\n- Pass `--encoding` into ctags, require it to return `utf-8`\r\n- More robust handling of filepaths, to avoid 8.3 windows filenames\r\n- Added [FAQ](https://aider.chat/docs/faq.html)\r\n- ~Marked GPT-4 as generally available~\r\n- Bugfix for live diffs of whole coder with missing filenames\r\n- Bugfix for chats with multiple files\r\n- Bugfix in editblock coder prompt\r\n- [Benchmark comparing code editing in GPT-3.5 and GPT-4](https://aider.chat/docs/benchmarks.html)\r\n- Improved Windows support:\r\n  - Fixed bugs related to path separators in Windows\r\n  - Added a CI step to run all tests on Windows\r\n- Improved handling of Unicode encoding/decoding\r\n  - Explicitly read/write text files with utf-8 encoding by default (mainly benefits Windows)\r\n  - Added `--encoding` switch to specify another encoding\r\n  - Gracefully handle decoding errors\r\n- Added `--code-theme` switch to control the pygments styling of code blocks (by @kwmiebach)\r\n- Better status messages explaining the reason when ctags is disabled\r\n",
+    "createdAt": "2023-07-08T13:10:00Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.8.2",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.8.1",
+    "name": "v0.8.1",
+    "body": "### v0.8.1\r\n\r\n- Ask to create a git repo if none found, to better track GPT's code changes\r\n- Glob wildcards are now supported in `/add` and `/drop` commands\r\n- Pass `--encoding` into ctags, require it to return `utf-8`\r\n- More robust handling of filepaths, to avoid 8.3 windows filenames\r\n- Added [FAQ](https://aider.chat/docs/faq.html)\r\n- Marked GPT-4 as generally available\r\n- Bugfix for live diffs of whole coder with missing filenames\r\n- Bugfix for chats with multiple files\r\n- Bugfix in editblock coder prompt\r\n\r\n### Plus everything from v0.8.0\r\n\r\n- [Benchmark comparing code editing in GPT-3.5 and GPT-4](https://aider.chat/docs/benchmarks.html)\r\n- Improved Windows support:\r\n  - Fixed bugs related to path separators in Windows\r\n  - Added a CI step to run all tests on Windows\r\n- Improved handling of Unicode encoding/decoding\r\n  - Explicitly read/write text files with utf-8 encoding by default (mainly benefits Windows)\r\n  - Added `--encoding` switch to specify another encoding\r\n  - Gracefully handle decoding errors\r\n- Added `--code-theme` switch to control the pygments styling of code blocks (by @kwmiebach)\r\n- Better status messages explaining the reason when ctags is disabled\r\n",
+    "createdAt": "2023-07-08T04:19:12Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.8.1",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.8.0",
+    "name": "v0.8.0",
+    "body": "### v0.8.0\r\n\r\n- [Benchmark comparing code editing in GPT-3.5 and GPT-4](https://aider.chat/docs/benchmarks.html)\r\n- Improved Windows support:\r\n  - Fixed bugs related to path separators in Windows\r\n  - Added a CI step to run all tests on Windows\r\n- Improved handling of Unicode encoding/decoding\r\n  - Explicitly read/write text files with utf-8 encoding by default (mainly benefits Windows)\r\n  - Added `--encoding` switch to specify another encoding\r\n  - Gracefully handle decoding errors\r\n- Added `--code-theme` switch to control the pygments styling of code blocks (by @kwmiebach)\r\n- Better status messages explaining the reason when ctags is disabled",
+    "createdAt": "2023-07-06T21:08:47Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.8.0",
+    "reactions": [
+      {
+        "type": "heart",
+        "totalCount": 1
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 98
+      },
+      {
+        "login": "eltociear",
+        "contributions": 1
+      }
+    ]
+  },
+  {
+    "tagName": "v0.7.2",
+    "name": "v0.7.2",
+    "body": "New in v0.7.2:\r\n\r\n- Fixed a bug to allow aider to edit files that contain triple backtick fences.\r\n\r\nPlus changes from earlier v0.7.x versions:\r\n\r\n- Fixed a bug in the display of streaming diffs in GPT-3.5 chats.\r\n- Graceful handling of context window exhaustion, including helpful tips.\r\n- Added `--message` to give GPT that one instruction and then exit after it replies and any edits are performed.\r\n- Added `--no-stream` to disable streaming GPT responses.\r\n  - Non-streaming responses include token usage info.\r\n  - Enables display of cost info based on OpenAI advertised pricing.\r\n- Coding competence benchmarking tool against suite of programming tasks based on Execism's python repo.\r\n  - https://github.com/exercism/python\r\n- Major refactor in preparation for supporting new function calls api.\r\n- Initial implementation of a function based code editing backend for 3.5.\r\n  - Initial experiments show that using functions makes 3.5 less competent at coding.\r\n- Limit automatic retries when GPT returns a malformed edit response.\r\n",
+    "createdAt": "2023-06-26T17:24:14Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.7.2",
+    "reactions": [
+      {
+        "type": "hooray",
+        "totalCount": 2
+      }
+    ],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.7.1",
+    "name": "v0.7.1",
+    "body": "New in v0.7.1:\r\n\r\n- Fixed a bug in the display of streaming diffs in GPT-3.5 chats\r\n\r\nPlus all the additions from v0.7.0:\r\n\r\n- Graceful handling of context window exhaustion, including helpful tips.\r\n- Added `--message` to give GPT that one instruction and then exit after it replies and any edits are performed.\r\n- Added `--no-stream` to disable streaming GPT responses.\r\n  - Non-streaming responses include token usage info.\r\n  - Enables display of cost info based on OpenAI advertised pricing.\r\n- Coding competence benchmarking tool against suite of programming tasks based on Execism's python repo.\r\n  - https://github.com/exercism/python\r\n- Major refactor in preparation for supporting new function calls api.\r\n- Initial implementation of a function based code editing backend for 3.5.\r\n  - Initial experiments show that using functions makes 3.5 less competent at coding.\r\n- Limit automatic retries when GPT returns a malformed edit response.\r\n",
+    "createdAt": "2023-06-26T00:55:18Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.7.1",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.7.0",
+    "name": "v0.7.0",
+    "body": "- Graceful handling of context window exhaustion, including helpful tips.\r\n- Added `--message` to give GPT that one instruction and then exit after it replies and any edits are performed.\r\n- Added `--no-stream` to disable streaming GPT responses.\r\n  - Non-streaming responses include token usage info.\r\n  - Enables display of cost info based on OpenAI advertised pricing.\r\n- Coding competence benchmarking tool against suite of programming tasks based on Execism's python repo.\r\n  - https://github.com/exercism/python\r\n- Major refactor in preparation for supporting new function calls api.\r\n- Initial implementation of a function based code editing backend for 3.5.\r\n  - Initial experiments show that using functions makes 3.5 less competent at coding.\r\n- Limit automatic retries when GPT returns a malformed edit response.\r\n",
+    "createdAt": "2023-06-25T15:34:47Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.7.0",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.6.2",
+    "name": "v0.6.2",
+    "body": "* Support for `gpt-3.5-turbo-16k`, and all OpenAI chat models\r\n* Improved ability to correct when gpt-4 omits leading whitespace in code edits\r\n* Added `--openai-api-base` to support API proxies, etc.\r\n",
+    "createdAt": "2023-06-17T13:47:24Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.6.2",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  },
+  {
+    "tagName": "v0.5.0",
+    "name": "v0.5.0",
+    "body": "- Added support for `gpt-3.5-turbo` and `gpt-4-32k`.\r\n- Added `--map-tokens` to set a token budget for the repo map, along with a PageRank based algorithm for prioritizing which files and identifiers to include in the map.\r\n- Added in-chat command `/tokens` to report on context window token usage.\r\n- Added in-chat command `/clear` to clear the conversation history.\r\n",
+    "createdAt": "2023-06-07T23:43:46Z",
+    "url": "https://github.com/Aider-AI/aider/releases/tag/v0.5.0",
+    "reactions": [],
+    "contributors": [
+      {
+        "login": "paul-gauthier",
+        "contributions": 100
+      }
+    ]
+  }
+]
