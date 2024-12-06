@@ -1,246 +1,178 @@
-import { Octokit } from '@octokit/rest';
-import * as dotenv from 'dotenv';
-import * as fs from 'fs/promises';
-import * as path from 'path';
 import { ReleaseAnalyzer } from './analyzer';
-import { ReleaseNote, Reaction, Contributor } from './types';
+import { 
+    ReleaseNote, 
+    ReleaseRating,
+    ProjectEvolutionMetrics,
+    ContributionOpportunity,
+    ProjectMaturityIndicators,
+    StrategicInsight,
+    CommunityMetrics,
+    RepositoryMetrics
+} from './types';
 
-// Load environment variables
-dotenv.config({ path: path.join(__dirname, '.env') });
+// Re-export types for external use
+export {
+    ReleaseNote,
+    ReleaseRating,
+    ProjectEvolutionMetrics,
+    ContributionOpportunity,
+    ProjectMaturityIndicators,
+    StrategicInsight,
+    CommunityMetrics,
+    RepositoryMetrics
+};
 
-interface RepoInfo {
-  owner: string;
-  repo: string;
-  fullName: string;
+export interface AnalyzerConfig {
+    releases: ReleaseNote[];
+    repoName: string;
+    repoMetrics: RepositoryMetrics;
 }
 
-function parseGitHubUrl(url: string): RepoInfo {
-  try {
-    const urlObj = new URL(url);
-    if (urlObj.hostname !== 'github.com') {
-      throw new Error('Not a GitHub URL');
-    }
+export interface AnalyzerOutput {
+    ratings: ReleaseRating[];
+    ratingMarkdown: string;
+    featureStoryMarkdown: string;
+    evolution: ProjectEvolutionMetrics;
+    opportunities: ContributionOpportunity[];
+    maturity: ProjectMaturityIndicators;
+    insights: StrategicInsight[];
+    community: CommunityMetrics;
+}
 
-    const [, owner, repo] = urlObj.pathname.split('/');
-    if (!owner || !repo) {
-      throw new Error('Invalid GitHub repository URL');
-    }
+/**
+ * Analyzes GitHub releases to provide comprehensive insights about project evolution,
+ * contribution opportunities, and community dynamics.
+ * 
+ * @param config Configuration object containing releases data and repository information
+ * @returns Comprehensive analysis results including various metrics and insights
+ */
+export async function analyzeReleases(config: AnalyzerConfig): Promise<AnalyzerOutput> {
+    const analyzer = new ReleaseAnalyzer(
+        config.releases,
+        config.repoName,
+        config.repoMetrics
+    );
 
-    return { 
-      owner, 
-      repo: repo.replace('.git', ''),
-      fullName: `${owner}/${repo.replace('.git', '')}`
+    const analysis = await analyzer.analyzeComprehensively();
+
+    return {
+        ratings: analysis.ratings,
+        ratingMarkdown: analyzer.generateRatingMarkdown(),
+        featureStoryMarkdown: analyzer.generateMarkdownSummary(),
+        evolution: analysis.evolution,
+        opportunities: analysis.opportunities,
+        maturity: analysis.maturity,
+        insights: analysis.insights,
+        community: analysis.community
     };
-  } catch (error) {
-    // Try parsing as owner/repo format
-    const parts = url.split('/');
-    if (parts.length === 2) {
-      const [owner, repo] = parts;
-      return { 
-        owner, 
-        repo: repo.replace('.git', ''),
-        fullName: `${owner}/${repo.replace('.git', '')}`
-      };
-    }
-    throw new Error('Invalid GitHub repository URL or format. Please use either https://github.com/owner/repo or owner/repo format.');
-  }
 }
 
-class GitHubReleaseAnalyzer {
-  private octokit: Octokit;
-  private outputPath: string;
-
-  constructor() {
-    const token = process.env.GITHUB_TOKEN;
-    if (!token) {
-      throw new Error('GITHUB_TOKEN environment variable is not set');
-    }
-
-    this.octokit = new Octokit({
-      auth: token
-    });
-
-    this.outputPath = path.join(__dirname, '..', 'release-notes');
-  }
-
-  private async fetchReleaseReactions(owner: string, repo: string, releaseId: number): Promise<Reaction[]> {
-    try {
-      const { data: reactions } = await this.octokit.reactions.listForRelease({
-        owner,
-        repo,
-        release_id: releaseId,
-        per_page: 100
-      });
-
-      // Group reactions by type and count them
-      const reactionCounts = new Map<string, number>();
-      reactions.forEach(reaction => {
-        const count = reactionCounts.get(reaction.content) || 0;
-        reactionCounts.set(reaction.content, count + 1);
-      });
-
-      return Array.from(reactionCounts.entries()).map(([type, count]) => ({
-        type,
-        totalCount: count
-      }));
-    } catch (error) {
-      console.warn(`Warning: Could not fetch reactions for release ${releaseId}:`, error);
-      return [];
-    }
-  }
-
-  private async fetchReleaseContributors(owner: string, repo: string, tagName: string): Promise<Contributor[]> {
-    try {
-      // Get commits for this release
-      const { data: commits } = await this.octokit.repos.listCommits({
-        owner,
-        repo,
-        sha: tagName,
-        per_page: 100
-      });
-
-      // Count contributions per author
-      const contributorMap = new Map<string, number>();
-      commits.forEach(commit => {
-        if (commit.author?.login) {
-          const count = contributorMap.get(commit.author.login) || 0;
-          contributorMap.set(commit.author.login, count + 1);
-        }
-      });
-
-      return Array.from(contributorMap.entries()).map(([login, contributions]) => ({
-        login,
-        contributions
-      }));
-    } catch (error) {
-      console.warn(`Warning: Could not fetch contributors for tag ${tagName}:`, error);
-      return [];
-    }
-  }
-
-  async fetchReleaseNotes(owner: string, repo: string): Promise<ReleaseNote[]> {
-    try {
-      const { data: releases } = await this.octokit.repos.listReleases({
-        owner,
-        repo,
-        per_page: 100
-      });
-
-      const releaseNotes: ReleaseNote[] = [];
-
-      for (const release of releases) {
-        const [reactions, contributors] = await Promise.all([
-          this.fetchReleaseReactions(owner, repo, release.id),
-          this.fetchReleaseContributors(owner, repo, release.tag_name)
-        ]);
-
-        releaseNotes.push({
-          tagName: release.tag_name,
-          name: release.name,
-          body: release.body ?? null,
-          createdAt: release.created_at,
-          url: release.html_url,
-          reactions,
-          contributors
-        });
-      }
-
-      return releaseNotes;
-    } catch (error) {
-      if (error instanceof Error) {
-        throw new Error(`Failed to fetch release notes: ${error.message}`);
-      }
-      throw error;
-    }
-  }
-
-  async saveReleaseNotes(owner: string, repo: string): Promise<ReleaseNote[]> {
-    try {
-      const releases = await this.fetchReleaseNotes(owner, repo);
-      
-      // Create output directory if it doesn't exist
-      await fs.mkdir(this.outputPath, { recursive: true });
-      
-      // Save as JSON for further analysis
-      const jsonPath = path.join(this.outputPath, `${owner}-${repo}-releases.json`);
-      await fs.writeFile(jsonPath, JSON.stringify(releases, null, 2));
-
-      // Save as markdown for human readability
-      const mdPath = path.join(this.outputPath, `${owner}-${repo}-releases.md`);
-      const markdown = this.generateMarkdown(releases);
-      await fs.writeFile(mdPath, markdown);
-
-      console.log(`Release notes saved to:\n- ${jsonPath}\n- ${mdPath}`);
-      
-      return releases;
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error('Error saving release notes:', error.message);
-        process.exit(1);
-      }
-      throw error;
-    }
-  }
-
-  private generateMarkdown(releases: ReleaseNote[]): string {
-    return releases.map(release => {
-      const contributorCount = release.contributors.length;
-      const reactionCount = release.reactions.reduce((sum, r) => sum + r.totalCount, 0);
-      
-      return `# ${release.name || release.tagName}\n\n` +
-        `**Tag:** ${release.tagName}\n` +
-        `**Created:** ${new Date(release.createdAt).toLocaleDateString()}\n` +
-        `**URL:** ${release.url}\n` +
-        `**Contributors:** ${contributorCount}\n` +
-        `**Reactions:** ${reactionCount}\n\n` +
-        `${release.body || 'No description provided.'}\n\n` +
-        '---\n';
-    }).join('\n');
-  }
+/**
+ * Generates a markdown summary of release ratings based on community engagement.
+ * 
+ * @param config Configuration object containing releases data and repository information
+ * @returns Markdown string containing the release ratings summary
+ */
+export function generateRatingMarkdown(config: AnalyzerConfig): string {
+    const analyzer = new ReleaseAnalyzer(
+        config.releases,
+        config.repoName,
+        config.repoMetrics
+    );
+    return analyzer.generateRatingMarkdown();
 }
 
-async function main() {
-  // Get repository URL from command line arguments
-  const repoUrl = process.argv[2];
-  if (!repoUrl) {
-    console.error('Please provide a GitHub repository URL or owner/repo format.');
-    console.error('Example: npm start https://github.com/facebook/react');
-    console.error('   or  : npm start facebook/react');
-    process.exit(1);
-  }
-
-  try {
-    const repoInfo = parseGitHubUrl(repoUrl);
-    console.log(`Analyzing repository: ${repoInfo.fullName}`);
-
-    const analyzer = new GitHubReleaseAnalyzer();
-    const releases = await analyzer.saveReleaseNotes(repoInfo.owner, repoInfo.repo);
-
-    // Generate feature story
-    const releaseAnalyzer = new ReleaseAnalyzer(releases, repoInfo.fullName);
-    const featureStory = releaseAnalyzer.generateMarkdownSummary();
-    const releaseRatings = releaseAnalyzer.generateRatingMarkdown();
-
-    // Save feature story and ratings
-    const featureStoryPath = path.join(__dirname, '..', 'release-notes', `${repoInfo.owner}-${repoInfo.repo}-feature-story.md`);
-    const ratingsPath = path.join(__dirname, '..', 'release-notes', `${repoInfo.owner}-${repoInfo.repo}-ratings.md`);
-    
-    await Promise.all([
-      fs.writeFile(featureStoryPath, featureStory),
-      fs.writeFile(ratingsPath, releaseRatings)
-    ]);
-    
-    console.log(`Feature story saved to: ${featureStoryPath}`);
-    console.log(`Release ratings saved to: ${ratingsPath}`);
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error('Error:', error.message);
-    }
-    process.exit(1);
-  }
+/**
+ * Generates a markdown summary of the project's feature evolution story.
+ * 
+ * @param config Configuration object containing releases data and repository information
+ * @returns Markdown string containing the feature evolution story
+ */
+export function generateFeatureStoryMarkdown(config: AnalyzerConfig): string {
+    const analyzer = new ReleaseAnalyzer(
+        config.releases,
+        config.repoName,
+        config.repoMetrics
+    );
+    return analyzer.generateMarkdownSummary();
 }
 
-main().catch(error => {
-  console.error('Error:', error.message);
-  process.exit(1);
-});
+/**
+ * Analyzes project evolution metrics to understand development patterns and trends.
+ * 
+ * @param config Configuration object containing releases data and repository information
+ * @returns Project evolution metrics including velocity and focus areas
+ */
+export async function analyzeProjectEvolution(config: AnalyzerConfig): Promise<ProjectEvolutionMetrics> {
+    const analyzer = new ReleaseAnalyzer(
+        config.releases,
+        config.repoName,
+        config.repoMetrics
+    );
+    const analysis = await analyzer.analyzeComprehensively();
+    return analysis.evolution;
+}
+
+/**
+ * Identifies potential contribution opportunities based on project gaps and needs.
+ * 
+ * @param config Configuration object containing releases data and repository information
+ * @returns Array of contribution opportunities with priority and complexity ratings
+ */
+export async function identifyContributionOpportunities(config: AnalyzerConfig): Promise<ContributionOpportunity[]> {
+    const analyzer = new ReleaseAnalyzer(
+        config.releases,
+        config.repoName,
+        config.repoMetrics
+    );
+    const analysis = await analyzer.analyzeComprehensively();
+    return analysis.opportunities;
+}
+
+/**
+ * Analyzes project maturity across various dimensions like stability and documentation.
+ * 
+ * @param config Configuration object containing releases data and repository information
+ * @returns Project maturity indicators across different aspects
+ */
+export async function analyzeProjectMaturity(config: AnalyzerConfig): Promise<ProjectMaturityIndicators> {
+    const analyzer = new ReleaseAnalyzer(
+        config.releases,
+        config.repoName,
+        config.repoMetrics
+    );
+    const analysis = await analyzer.analyzeComprehensively();
+    return analysis.maturity;
+}
+
+/**
+ * Generates strategic insights based on project evolution and maturity analysis.
+ * 
+ * @param config Configuration object containing releases data and repository information
+ * @returns Array of strategic insights with recommendations
+ */
+export async function generateStrategicInsights(config: AnalyzerConfig): Promise<StrategicInsight[]> {
+    const analyzer = new ReleaseAnalyzer(
+        config.releases,
+        config.repoName,
+        config.repoMetrics
+    );
+    const analysis = await analyzer.analyzeComprehensively();
+    return analysis.insights;
+}
+
+/**
+ * Analyzes community dynamics and collaboration patterns.
+ * 
+ * @param config Configuration object containing releases data and repository information
+ * @returns Community metrics including demographics and collaboration patterns
+ */
+export async function analyzeCommunityDynamics(config: AnalyzerConfig): Promise<CommunityMetrics> {
+    const analyzer = new ReleaseAnalyzer(
+        config.releases,
+        config.repoName,
+        config.repoMetrics
+    );
+    const analysis = await analyzer.analyzeComprehensively();
+    return analysis.community;
+}
