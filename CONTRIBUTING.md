@@ -1,174 +1,181 @@
-# Contributing to GitHub Release Notes Analyzer
+# Contributing to Release Analyzer
 
-First off, thank you for considering contributing to GitHub Release Notes Analyzer! It's people like you that make this tool awesome and help us understand software evolution better. 🎉
+Thank you for your interest in contributing to Release Analyzer! This document provides guidelines and information for contributors.
 
-## 🎯 Where to Start
+## Project Structure
 
-1. **Star the Repository**: Show your support and help others discover the project!
-2. **Fork & Clone**: Get your own copy to work on
-3. **Pick an Issue**: Look for issues labeled `good-first-issue` or `help-wanted`
+The project is organized into specialized analyzers:
 
-## 💻 Development Setup
+```
+src/
+├── analyzers/
+│   ├── ProjectEvolutionAnalyzer.ts   # Development patterns and trends
+│   ├── ContributionAnalyzer.ts       # Contribution opportunity detection
+│   ├── ProjectMaturityAnalyzer.ts    # Project health assessment
+│   ├── StrategicAnalyzer.ts         # Strategic insight generation
+│   └── CommunityAnalyzer.ts         # Community dynamics analysis
+├── analyzer.ts                       # Main analyzer integration
+├── index.ts                         # Public API
+└── types.ts                         # Type definitions
+```
 
-1. **Prerequisites**
-   ```bash
-   node -v  # Should be v16 or higher
-   npm -v   # Should be v8 or higher
-   ```
+## Getting Started
 
-2. **Installation**
-   ```bash
-   git clone https://github.com/yourusername/github-release-analyzer.git
-   cd github-release-analyzer
-   npm install
-   ```
+1. Fork the repository
+2. Clone your fork: `git clone https://github.com/your-username/release-analyzer.git`
+3. Install dependencies: `npm install`
+4. Create a branch: `git checkout -b your-feature-name`
 
-3. **Environment Setup**
-   ```bash
-   cp src/.env.example src/.env
-   # Edit .env with your GitHub token
-   ```
+## Development Guidelines
 
-## 🚀 Making Changes
+### 1. Code Style
 
-1. **Create a Branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+- Use TypeScript for all new code
+- Follow existing code formatting (enforced by ESLint/Prettier)
+- Use meaningful variable and function names
+- Add JSDoc comments for public APIs
+- Keep functions focused and modular
 
-2. **Code Style**
-   - Use TypeScript
-   - Follow our ESLint configuration
-   - Write meaningful commit messages
-   - Add tests for new features
-   - Update documentation as needed
+### 2. Adding New Features
 
-3. **Testing**
-   ```bash
-   npm test                 # Run all tests
-   npm run test:watch      # Run tests in watch mode
-   npm run lint            # Check code style
-   ```
+When adding new analytics capabilities:
 
-## 🌟 What We're Looking For
+1. **Type Definitions**
+   - Add new interfaces to `src/types.ts`
+   - Use descriptive names and document complex types
+   - Consider backward compatibility
 
-### High Priority Areas
-
-1. **Feature Extraction**
-   - Improve detection algorithms
-   - Add support for more release note formats
-   - Implement machine learning approaches
-
-2. **Output Formats**
-   - Add new output formats (HTML, PDF)
-   - Create visualization options
-   - Support custom templates
+2. **Analyzer Implementation**
+   - Create new analyzers in `src/analyzers/` directory
+   - Follow existing analyzer patterns
+   - Implement clear, focused analysis methods
+   - Add comprehensive error handling
 
 3. **Integration**
-   - GitHub Actions integration
-   - CI/CD pipeline support
-   - Documentation site generators
+   - Update `src/analyzer.ts` to integrate new capabilities
+   - Maintain backward compatibility
+   - Consider performance implications
 
-4. **UI/UX**
-   - Web interface
-   - CLI improvements
-   - Interactive features
+4. **API Updates**
+   - Add new exports to `src/index.ts`
+   - Provide both comprehensive and focused analysis options
+   - Document new APIs with JSDoc comments
 
-### Documentation
+### 3. Analytics Guidelines
 
-1. **Examples**
-   - Add more example use cases
-   - Create tutorials
-   - Write blog posts
+When implementing analytics:
 
-2. **API Documentation**
-   - Improve function documentation
-   - Add more code examples
-   - Create API reference guides
+1. **Project Evolution Analysis**
+   - Focus on meaningful development patterns
+   - Consider both short and long-term trends
+   - Include velocity and stability metrics
+   - Track breaking changes carefully
 
-## 📝 Pull Request Process
+2. **Contribution Analysis**
+   - Prioritize actionable insights
+   - Consider different contributor skill levels
+   - Include clear complexity assessments
+   - Link to relevant context
+
+3. **Maturity Assessment**
+   - Use objective metrics where possible
+   - Consider multiple aspects of project health
+   - Include trend analysis
+   - Document assessment criteria
+
+4. **Strategic Analysis**
+   - Focus on actionable recommendations
+   - Support insights with data
+   - Consider different stakeholder perspectives
+   - Prioritize impactful insights
+
+5. **Community Analysis**
+   - Respect privacy considerations
+   - Focus on aggregate patterns
+   - Include collaboration metrics
+   - Consider different types of contributions
+
+## Testing
+
+1. **Unit Tests**
+   - Write tests for new analyzers
+   - Cover edge cases and error conditions
+   - Mock external dependencies
+   - Maintain test coverage standards
+
+2. **Integration Tests**
+   - Test analyzer integration
+   - Verify API compatibility
+   - Test with realistic data sets
+   - Check performance impact
+
+## Documentation
+
+1. **Code Documentation**
+   - Add JSDoc comments for public APIs
+   - Document complex algorithms
+   - Include usage examples
+   - Explain important design decisions
+
+2. **README Updates**
+   - Document new features
+   - Update usage examples
+   - Keep API reference current
+   - Include performance considerations
+
+3. **Type Documentation**
+   - Document new interfaces
+   - Include property descriptions
+   - Provide usage examples
+   - Note any constraints
+
+## Pull Request Process
 
 1. **Before Submitting**
+   - Run all tests: `npm test`
    - Update documentation
-   - Add/update tests
-   - Run the test suite
-   - Update the changelog
+   - Add tests for new features
+   - Check code style: `npm run lint`
 
-2. **PR Guidelines**
-   - Link to related issues
-   - Describe your changes
-   - Include screenshots for UI changes
-   - List breaking changes
+2. **PR Description**
+   - Describe the changes
+   - Link related issues
+   - Include testing notes
+   - Note documentation updates
 
 3. **Review Process**
-   - Two approvals required
-   - All checks must pass
-   - Documentation must be updated
+   - Address review comments
+   - Keep changes focused
+   - Maintain clean commit history
+   - Update based on feedback
 
-## 🎨 Design Guidelines
+## Release Process
 
-1. **Code Architecture**
-   - Keep modules focused and small
-   - Follow SOLID principles
-   - Write testable code
+1. **Version Updates**
+   - Follow semantic versioning
+   - Update CHANGELOG.md
+   - Document breaking changes
+   - Note deprecations
 
-2. **TypeScript Best Practices**
-   - Use strict type checking
-   - Avoid `any` types
-   - Document complex types
+2. **Release Notes**
+   - List new features
+   - Document breaking changes
+   - Include upgrade guide
+   - Credit contributors
 
-3. **Performance**
-   - Consider memory usage
-   - Optimize for large repositories
-   - Cache where appropriate
+## Community
 
-## 🤝 Community
+- Be respectful and inclusive
+- Follow the code of conduct
+- Help other contributors
+- Share knowledge and insights
 
-- Join our [Discord server](#) for discussions
-- Follow us on [Twitter](#) for updates
-- Read our [blog](#) for deep dives
+## Questions?
 
-## 🎉 Recognition
+Feel free to:
+- Open an issue for questions
+- Join our discussions
+- Reach out to maintainers
+- Check existing documentation
 
-Contributors get:
-- Listed in our README
-- Mentioned in release notes
-- Access to contributor-only resources
-- Opportunity to join the core team
-
-## 📜 Code of Conduct
-
-Please read our [Code of Conduct](CODE_OF_CONDUCT.md). We expect all contributors to adhere to it.
-
-## ❓ Questions?
-
-- Create an issue for bugs
-- Join our discussions for questions
-- Email maintainers for private concerns
-
-## 📈 Project Goals
-
-1. **Short Term**
-   - Improve feature detection accuracy
-   - Add more output formats
-   - Create a web interface
-
-2. **Medium Term**
-   - Machine learning integration
-   - Real-time analysis
-   - Advanced visualizations
-
-3. **Long Term**
-   - Ecosystem of plugins
-   - Enterprise features
-   - Integration marketplace
-
-## 🎯 Impact
-
-Your contributions help:
-- Developers understand software evolution
-- Teams track breaking changes
-- Projects maintain better documentation
-- The community grow and learn
-
-Thank you for contributing! 🙏
+Thank you for contributing to Release Analyzer!
