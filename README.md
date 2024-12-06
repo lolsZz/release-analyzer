@@ -167,7 +167,7 @@ We believe in the power of community-driven development. Your contributions help
 
 ## License
 
-MIT © [Martin Magala]
+MIT © [Martin M]
 
 ---
 
